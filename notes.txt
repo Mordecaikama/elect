@@ -1,0 +1,25 @@
+dbname=ecommerce_mordecai
+
+dbname=ecommerce_mordecai
+
+dbname=ecommerce_mordecai
+
+dbname=ecommerce_mordecai
+
+
+
+using middleware 
+use userbyid organisationbyid categorybyid reviewbyid 
+
+e.g 
+
+userbyid(req,res,next,id){
+u can use mongoose.findbyid(id,(err,data)=>{
+ if(err || !data){
+  send err msg 
+ }
+ req.user  = data 
+ and save user information in all request made using userid
+})
+
+}
