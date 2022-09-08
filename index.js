@@ -8,6 +8,7 @@ const app = express()
 const routesUser = require('./routes/user')
 const routesElection = require('./routes/election')
 const routesCandidate = require('./routes/candidate')
+const routesVoter = require('./routes/voter')
 
 require('dotenv').config()
 
@@ -32,6 +33,7 @@ mongoose
 app.use('/api', routesUser)
 app.use('/api', routesElection)
 app.use('/api', routesCandidate)
+app.use('/api', routesVoter)
 
 const writefile = (text) => {
   const varToString = (text) => Object.keys(text)[0]

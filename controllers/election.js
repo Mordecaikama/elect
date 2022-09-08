@@ -5,15 +5,19 @@ const Organisation = require('../models/Organisation')
 const jwt = require('jsonwebtoken')
 
 exports.electionById = (req, res, next, id) => {
-  Election.findById(id).exec((err, election) => {
-    if (err || !election) {
-      return res.status(400).json({
-        error: 'No Order found',
-      })
-    }
-    req.election = election
-    next()
-  })
+  Election.findById(id)
+    .populate('voters', 'name email')
+    .populate('type', '_id name')
+    .select('_id name')
+    .exec((err, election) => {
+      if (err || !election) {
+        return res.status(400).json({
+          error: 'No Election found',
+        })
+      }
+      req.election = election
+      next()
+    })
 }
 
 exports.createElection = (req, res) => {

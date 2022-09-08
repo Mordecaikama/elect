@@ -16,8 +16,8 @@ const organisationSchema = mongoose.Schema(
       type: Number,
       required: [true, 'How many elections per year'],
     },
-    elections: [{ type: ObjectId, ref: 'election' }],
-    user: { type: ObjectId, ref: 'user' },
+    elections: [{ type: ObjectId, ref: 'Election' }],
+    user: { type: ObjectId, ref: 'User' },
     slug: {
       type: String,
       maxlength: 32,

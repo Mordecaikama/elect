@@ -16,8 +16,8 @@ const electionSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please enter start date'],
     },
-    voters: [{ type: ObjectId, ref: 'voter' }],
-    type: [{ type: ObjectId, ref: 'type' }],
+    voters: [{ type: ObjectId, ref: 'Voter' }],
+    type: [{ type: ObjectId, ref: 'Type' }],
   },
 
   { timestamps: true }

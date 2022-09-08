@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const { ObjectId } = mongoose.Schema
+const { isEmail } = require('validator')
 
 const voterSchema = mongoose.Schema(
   {
@@ -21,12 +22,20 @@ const voterSchema = mongoose.Schema(
     voterkey: {
       type: String,
       required: [true, 'Please enter your password'],
-      minlength: [6, 'Minimum password Length is 6'],
+      minlength: [6, 'Minimum voterkey Length is 6'],
     },
     voterid: {
       type: String,
+      unique: true,
       required: [true, 'Please enter your password'],
-      minlength: [6, 'Minimum password Length is 6'],
+      minlength: [4, 'Minimum voterid Length is 6'],
+    },
+    track: {
+      type: String,
+      default: '',
+    },
+    hasvoted: {
+      type: Boolean,
     },
   },
 

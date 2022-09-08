@@ -1,14 +1,13 @@
 const express = require('express')
-const Election = require('../models/Election')
 const Type = require('../models/Type')
 const Candidate = require('../models/Candidate')
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 
 exports.electionTypeById = (req, res, next, id) => {
   Type.findById(id).exec((err, typ) => {
     if (err || !typ) {
       return res.status(400).json({
-        error: 'No Order found',
+        error: 'No election found',
       })
     }
     req.type = typ
